@@ -8,8 +8,8 @@ HTML = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cecyte jalisco</title>
-    <link rel="icon" href="data:"> 
+    <title>Colegio de Estudios Científicos y Tecnológicos del Estado de Jalisco</title>
+    <link rel="icon" href="https://th.bing.com/th/id/OIP.ALVuYoNiMXR_6LqKFiImAQHaHa?w=163&h=180&c=7&r=0&o=7&pid=1.7&rm=3">
     <style>
         * {
             margin: 0;
@@ -18,14 +18,28 @@ HTML = """
             font-family: 'Segoe UI', Tahoma, sans-serif;
         }
 
+        :root {
+            --color-primario:      #006341;
+            --color-secundario:    #7A1F3D;
+            --color-dorado:        #C9A227;
+            --color-dorado-claro:  #E8C96A;
+            --color-fondo-1:       #EAF5EE;
+            --color-fondo-2:       #FDF8E7;
+            --color-fondo-3:       #F5E6EB;
+            --color-texto:         #2E3A2F;
+            --color-texto-suave:   #5A6A5C;
+            --color-tarjeta:       #FFFFFF;
+            --color-tarjeta-info:  #F4F9F1;
+            --color-borde-acento:  #C9A227;
+        }
+
         body {
-            background: linear-gradient(135deg, #FFE5F1 0%, #FFF0F6 50%, #FFD9E8 100%);
+            background: linear-gradient(135deg, var(--color-fondo-1) 0%, var(--color-fondo-2) 50%, var(--color-fondo-3) 100%);
             min-height: 100vh;
-            color: #5A3A4A;
+            color: var(--color-texto);
             padding: 20px;
         }
 
-        /* ===================== PORTADA ===================== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -34,22 +48,67 @@ HTML = """
         header.portada {
             text-align: center;
             padding: 50px 20px;
-            background: rgba(255, 255, 255, 0.75);
+            background: rgba(255, 255, 255, 0.85);
             border-radius: 25px;
             margin-bottom: 40px;
-            box-shadow: 0 8px 24px rgba(255, 143, 177, 0.25);
+            box-shadow: 0 8px 24px rgba(0, 99, 65, 0.25);
+            border: 3px solid var(--color-dorado);
+            position: relative;
+            overflow: hidden;
         }
 
+        header.portada::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--color-primario), var(--color-dorado), var(--color-secundario), var(--color-dorado), var(--color-primario));
+        }
+
+        .portada-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .portada-logos img {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+        }
+        .logo-cecytej { max-height: 100px; }
+        .emblema-30   { max-height: 110px; }
+
         header.portada h1 {
-            color: #D65A8C;
-            font-size: 2.8em;
+            color: var(--color-primario);
+            font-size: 2.4em;
             margin-bottom: 10px;
         }
 
+        header.portada .bienvenida {
+            font-size: 1.15em;
+            color: var(--color-texto-suave);
+            max-width: 800px;
+            margin: 0 auto 15px;
+            line-height: 1.6;
+        }
+
         header.portada p {
-            font-size: 1.2em;
-            color: #9A6A80;
+            font-size: 1.05em;
+            color: var(--color-texto-suave);
             margin-bottom: 25px;
+        }
+
+        .foto-plantel {
+            width: 100%;
+            max-width: 750px;
+            border-radius: 18px;
+            border: 4px solid var(--color-dorado);
+            box-shadow: 0 8px 25px rgba(0, 99, 65, 0.25);
+            margin: 0 auto 25px;
+            display: block;
         }
 
         .cards {
@@ -60,10 +119,10 @@ HTML = """
         }
 
         .card {
-            background: #FFFFFF;
+            background: var(--color-tarjeta);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 6px 20px rgba(255, 143, 177, 0.25);
+            box-shadow: 0 6px 20px rgba(0, 99, 65, 0.25);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -71,14 +130,14 @@ HTML = """
 
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(255, 143, 177, 0.4);
+            box-shadow: 0 12px 30px rgba(0, 99, 65, 0.4);
         }
 
         .card-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            background: #FFE5F1;
+            background: var(--color-fondo-1);
         }
 
         .card-body {
@@ -89,27 +148,28 @@ HTML = """
         }
 
         .card-body h3 {
-            color: #D65A8C;
+            color: var(--color-primario);
             margin-bottom: 12px;
             font-size: 1.4em;
         }
 
         .card-body p {
-            color: #7A5A6A;
+            color: var(--color-texto-suave);
             line-height: 1.6;
             margin-bottom: 18px;
             flex-grow: 1;
         }
 
         .info-section {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 6px 20px rgba(255, 143, 177, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 99, 65, 0.2);
+            border: 2px solid var(--color-dorado);
         }
 
         .info-section h2 {
-            color: #D65A8C;
+            color: var(--color-primario);
             text-align: center;
             margin-bottom: 25px;
             font-size: 2em;
@@ -122,53 +182,51 @@ HTML = """
         }
 
         .info-item {
-            background: #FFF0F6;
+            background: var(--color-tarjeta-info);
             padding: 20px;
             border-radius: 15px;
-            border-left: 5px solid #FF9EC4;
+            border-left: 5px solid var(--color-borde-acento);
         }
 
         .info-item strong {
-            color: #D65A8C;
+            color: var(--color-primario);
             display: block;
             margin-bottom: 6px;
             font-size: 1.1em;
         }
 
-        /* ===================== BOTONES ===================== */
         .btn {
             display: inline-block;
             padding: 12px 26px;
-            background: linear-gradient(135deg, #FF9EC4, #FF7BA9);
+            background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(255, 123, 169, 0.35);
+            box-shadow: 0 4px 12px rgba(0, 99, 65, 0.35);
             border: none;
             cursor: pointer;
             font-size: 1em;
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, #FF7BA9, #FF5C91);
+            background: linear-gradient(135deg, var(--color-secundario), var(--color-primario));
             transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(255, 92, 145, 0.5);
+            box-shadow: 0 6px 18px rgba(122, 31, 61, 0.5);
         }
 
         .btn-blanco {
             background: rgba(255, 255, 255, 0.9);
-            color: #D65A8C;
+            color: var(--color-primario);
         }
 
         .btn-blanco:hover {
             background: #FFFFFF;
-            color: #FF5C91;
+            color: var(--color-secundario);
         }
 
-        /* ===================== DIAPOSITIVA (SLIDE) ===================== */
         .slide {
             position: relative;
             width: 100%;
@@ -180,23 +238,22 @@ HTML = """
             justify-content: center;
             text-align: center;
             color: white;
-            box-shadow: 0 15px 40px rgba(214, 90, 140, 0.35);
+            box-shadow: 0 15px 40px rgba(0, 99, 65, 0.35);
             background-size: cover;
             background-position: center;
             isolation: isolate;
             padding: 40px 20px;
         }
 
-        /* Capa oscura semitransparente para que el texto se lea */
         .slide::before {
             content: "";
             position: absolute;
             inset: 0;
             background: linear-gradient(
                 135deg,
-                rgba(214, 90, 140, 0.75),
-                rgba(255, 123, 169, 0.55),
-                rgba(90, 58, 74, 0.70)
+                rgba(0, 99, 65, 0.75),
+                rgba(122, 31, 61, 0.55),
+                rgba(201, 162, 39, 0.70)
             );
             z-index: -1;
         }
@@ -236,7 +293,7 @@ HTML = """
             line-height: 1.8;
             margin-bottom: 25px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-            background: rgba(90, 58, 74, 0.35);
+            background: rgba(46, 58, 47, 0.35);
             padding: 22px 26px;
             border-radius: 18px;
             backdrop-filter: blur(4px);
@@ -245,7 +302,7 @@ HTML = """
         .curiosidad {
             display: inline-block;
             background: rgba(255, 255, 255, 0.9);
-            color: #D65A8C;
+            color: var(--color-primario);
             padding: 14px 22px;
             border-radius: 15px;
             font-size: 1em;
@@ -255,10 +312,9 @@ HTML = """
         }
 
         .curiosidad strong {
-            color: #FF5C91;
+            color: var(--color-dorado);
         }
 
-        /* ===================== VIDEO LOCAL EN SLIDE ===================== */
         .slide-video {
             width: 100%;
             max-width: 900px;
@@ -272,7 +328,6 @@ HTML = """
             background: #000;
         }
 
-        /* Barra de navegación fija abajo */
         .nav-slide {
             position: fixed;
             bottom: 25px;
@@ -280,10 +335,10 @@ HTML = """
             transform: translateX(-50%);
             display: flex;
             gap: 12px;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             padding: 10px 15px;
             border-radius: 50px;
-            box-shadow: 0 8px 25px rgba(214, 90, 140, 0.35);
+            box-shadow: 0 8px 25px rgba(0, 99, 65, 0.35);
             backdrop-filter: blur(8px);
             z-index: 100;
         }
@@ -304,12 +359,12 @@ HTML = """
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #FFC7DD;
+            background: var(--color-dorado-claro);
             transition: all 0.3s;
         }
 
         .punto.activo {
-            background: #FF5C91;
+            background: var(--color-dorado);
             transform: scale(1.3);
         }
 
@@ -317,8 +372,417 @@ HTML = """
             text-align: center;
             padding: 30px;
             margin-top: 40px;
-            color: #9A6A80;
+            color: var(--color-texto-suave);
             font-size: 0.95em;
+        }
+
+        /* ===== SECCIONES ESPECIALES ===== */
+        .seccion-especial {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0 100px;
+        }
+
+        .especial-titulo {
+            text-align: center;
+            color: var(--color-primario);
+            font-size: 2.6em;
+            margin-bottom: 10px;
+        }
+
+        .especial-subtitulo {
+            text-align: center;
+            color: var(--color-texto-suave);
+            font-size: 1.15em;
+            margin-bottom: 45px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .especial-bloque {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 35px 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 6px 20px rgba(0, 99, 65, 0.2);
+            border: 2px solid var(--color-dorado);
+        }
+
+        .especial-bloque h2 {
+            color: var(--color-primario);
+            font-size: 1.8em;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .especial-bloque .bloque-desc {
+            text-align: center;
+            color: var(--color-texto-suave);
+            margin-bottom: 30px;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        /* Línea del tiempo */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--color-primario), var(--color-dorado), var(--color-secundario));
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--color-dorado);
+            border: 4px solid var(--color-primario);
+            box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.25);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 99, 65, 0.15);
+            border-left: 4px solid var(--color-dorado);
+            display: inline-block;
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-card {
+            border-left: none;
+            border-right: 4px solid var(--color-dorado);
+        }
+
+        .timeline-fecha {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+            color: white;
+            padding: 5px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95em;
+            margin-bottom: 12px;
+        }
+
+        .timeline-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-card h3 {
+            color: var(--color-primario);
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        .timeline-card p {
+            color: var(--color-texto-suave);
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        /* Antes / Ahora */
+        .antes-ahora {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .antes-ahora > div {
+            text-align: center;
+        }
+
+        .antes-ahora img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid var(--color-dorado);
+        }
+
+        .antes-ahora .etiqueta {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95em;
+        }
+
+        .etiqueta-antes {
+            background: var(--color-secundario);
+            color: white;
+        }
+
+        .etiqueta-ahora {
+            background: var(--color-primario);
+            color: white;
+        }
+
+        /* Listas (mejoras, recuerdos, eventos) */
+        .grid-listas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .item-lista {
+            background: var(--color-tarjeta-info);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid var(--color-dorado);
+            color: var(--color-texto);
+            line-height: 1.5;
+        }
+
+        .item-lista strong {
+            display: block;
+            color: var(--color-primario);
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        /* Datos de crecimiento */
+        .cifras {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .cifra {
+            background: white;
+            padding: 25px 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 99, 65, 0.15);
+            border-bottom: 5px solid var(--color-dorado);
+        }
+
+        .cifra .numero {
+            font-size: 2.6em;
+            font-weight: 800;
+            color: var(--color-primario);
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .cifra .etiqueta-cifra {
+            color: var(--color-texto-suave);
+            font-size: 0.95em;
+        }
+
+        /* Testimonios */
+        .grid-testimonios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .testimonio {
+            background: white;
+            border-radius: 18px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 99, 65, 0.18);
+            border-top: 5px solid var(--color-dorado);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonio:hover {
+            transform: translateY(-6px);
+        }
+
+        .testimonio img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--color-dorado);
+            margin-bottom: 15px;
+        }
+
+        .testimonio .nombre {
+            color: var(--color-primario);
+            font-size: 1.15em;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .testimonio .generacion {
+            color: var(--color-secundario);
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .testimonio .frase {
+            color: var(--color-texto-suave);
+            font-style: italic;
+            line-height: 1.6;
+            font-size: 0.98em;
+            position: relative;
+            padding: 0 5px;
+        }
+
+        .testimonio .frase::before {
+            content: "\\201C";
+            font-size: 2.5em;
+            color: var(--color-dorado);
+            position: absolute;
+            top: -15px;
+            left: -5px;
+            line-height: 1;
+        }
+
+        .testimonio-tipo {
+            display: inline-block;
+            background: var(--color-fondo-1);
+            color: var(--color-primario);
+            font-size: 0.75em;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Frases de orgullo */
+        .frases-orgullo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .frase-orgullo {
+            background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+            color: white;
+            padding: 30px 25px;
+            border-radius: 18px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: center;
+            font-style: italic;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0, 99, 65, 0.3);
+        }
+
+        .frase-orgullo::before {
+            content: "\\201C";
+            font-size: 4em;
+            color: rgba(255, 255, 255, 0.3);
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            line-height: 1;
+        }
+
+        /* Formación integral */
+        .formacion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .formacion-item {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 99, 65, 0.15);
+            border-bottom: 4px solid var(--color-dorado);
+        }
+
+        .formacion-item .icono {
+            font-size: 2.5em;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .formacion-item h3 {
+            color: var(--color-primario);
+            margin-bottom: 10px;
+            font-size: 1.15em;
+        }
+
+        .formacion-item p {
+            color: var(--color-texto-suave);
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .timeline-item,
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                left: 0;
+                text-align: left;
+                padding: 15px 15px 15px 50px;
+            }
+            .timeline-item::after,
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 10px;
+                right: auto;
+            }
+            .timeline-item:nth-child(odd) .timeline-card {
+                border-right: none;
+                border-left: 4px solid var(--color-dorado);
+            }
+            .antes-ahora { grid-template-columns: 1fr; }
+            .especial-titulo { font-size: 2em; }
         }
 
         @media (max-width: 600px) {
@@ -327,13 +791,180 @@ HTML = """
             .nav-slide { gap: 6px; padding: 8px 10px; }
             .nav-slide .btn { padding: 8px 14px; font-size: 0.85em; }
             .slide-video { max-height: 300px; }
+            .portada-logos img { height: 65px; }
         }
     </style>
 </head>
 <body>
 
-{% if seccion %}
-   
+{% if seccion and seccion.tipo == "especial" %}
+    <div class="seccion-especial">
+        <h1 class="especial-titulo">{{ seccion.titulo }}</h1>
+        <p class="especial-subtitulo">{{ seccion.descripcion_larga }}</p>
+
+        {% if seccion.linea_tiempo %}
+        <div class="especial-bloque">
+            <h2>Línea del Tiempo</h2>
+            <p class="bloque-desc">Etapas clave en la historia del Plantel 08 y del CECyTEJ.</p>
+            <div class="timeline">
+                {% for etapa in seccion.linea_tiempo %}
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="timeline-fecha">{{ etapa.fecha }}</span>
+                        {% if etapa.img %}<img src="{{ etapa.img }}" alt="{{ etapa.titulo }}">{% endif %}
+                        <h3>{{ etapa.titulo }}</h3>
+                        <p>{{ etapa.descripcion }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if seccion.antes_ahora %}
+        <div class="especial-bloque">
+            <h2>Antes y Ahora</h2>
+            <p class="bloque-desc">{{ seccion.antes_ahora.texto }}</p>
+            <div class="antes-ahora">
+                <div>
+                    {% if seccion.antes_ahora.antes_img %}
+                    <img src="{{ seccion.antes_ahora.antes_img }}" alt="Antes">
+                    {% endif %}
+                    <span class="etiqueta etiqueta-antes">ANTES</span>
+                </div>
+                <div>
+                    {% if seccion.antes_ahora.ahora_img %}
+                    <img src="{{ seccion.antes_ahora.ahora_img }}" alt="Ahora">
+                    {% endif %}
+                    <span class="etiqueta etiqueta-ahora">AHORA</span>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if seccion.mejoras %}
+        <div class="especial-bloque">
+            <h2>Mejoras</h2>
+            <p class="bloque-desc">Cambios y mejoras que ha tenido el plantel a lo largo del tiempo.</p>
+            <div class="grid-listas">
+                {% for m in seccion.mejoras %}
+                <div class="item-lista">
+                    <strong>{{ m.titulo }}</strong>
+                    {{ m.descripcion }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if seccion.recuerdos %}
+        <div class="especial-bloque">
+            <h2>Recuerdos</h2>
+            <p class="bloque-desc">Anécdotas y memorias de quienes han formado parte del plantel.</p>
+            <div class="grid-listas">
+                {% for r in seccion.recuerdos %}
+                <div class="item-lista">
+                    <strong>{{ r.titulo }}</strong>
+                    {{ r.descripcion }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if seccion.eventos_clave %}
+        <div class="especial-bloque">
+            <h2>Eventos Clave</h2>
+            <p class="bloque-desc">Momentos históricos que marcaron el rumbo del plantel.</p>
+            <div class="grid-listas">
+                {% for e in seccion.eventos_clave %}
+                <div class="item-lista">
+                    <strong>{{ e.fecha }} — {{ e.titulo }}</strong>
+                    {{ e.descripcion }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if seccion.datos_crecimiento %}
+        <div class="especial-bloque">
+            <h2>Datos de Crecimiento</h2>
+            <p class="bloque-desc">El crecimiento del CECyTEJ en números.</p>
+            <div class="cifras">
+                {% for d in seccion.datos_crecimiento %}
+                <div class="cifra">
+                    <span class="numero">{{ d.numero }}</span>
+                    <span class="etiqueta-cifra">{{ d.etiqueta }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if seccion.testimonios %}
+        <div class="especial-bloque">
+            <h2>Testimonios</h2>
+            <p class="bloque-desc">Voces de exalumnos y alumnos.</p>
+            <div class="grid-testimonios">
+                {% for t in seccion.testimonios %}
+                <div class="testimonio">
+                    {% if t.foto %}<img src="{{ t.foto }}" alt="{{ t.nombre }}">{% endif %}
+                    <span class="testimonio-tipo">{{ t.tipo }}</span>
+                    <div class="nombre">{{ t.nombre }}</div>
+                    {% if t.generacion %}<div class="generacion">{{ t.generacion }}</div>{% endif %}
+                    <p class="frase">{{ t.frase }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if seccion.frases_orgullo %}
+        <div class="especial-bloque">
+            <h2>Frases de Orgullo</h2>
+            <p class="bloque-desc">Lo que significa ser parte del CECyTEJ Plantel 08.</p>
+            <div class="frases-orgullo">
+                {% for f in seccion.frases_orgullo %}
+                <div class="frase-orgullo">{{ f }}</div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if seccion.formacion_integral %}
+        <div class="especial-bloque">
+            <h2>Formación Integral</h2>
+            <p class="bloque-desc">Áreas que complementan la formación académica de nuestros estudiantes.</p>
+            <div class="formacion-grid">
+                {% for f in seccion.formacion_integral %}
+                <div class="formacion-item">
+                    <span class="icono">{{ f.icono }}</span>
+                    <h3>{{ f.titulo }}</h3>
+                    <p>{{ f.descripcion }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <nav class="nav-slide">
+        {% if anterior %}
+            <a href="/seccion/{{ anterior }}" class="btn">← Anterior</a>
+        {% endif %}
+        <div class="puntos">
+            {% for s in secciones %}
+                <span class="punto {% if loop.index0 == indice %}activo{% endif %}"></span>
+            {% endfor %}
+        </div>
+        {% if siguiente %}
+            <a href="/seccion/{{ siguiente }}" class="btn">Siguiente →</a>
+        {% endif %}
+        <a href="/" class="btn btn-blanco">Inicio</a>
+    </nav>
+
+{% elif seccion %}
     <div class="slide" style="background-image: url('{{ seccion.img }}');">
         <div class="slide-contenido">
             <span class="slide-numero">
@@ -355,33 +986,46 @@ HTML = """
         </div>
     </div>
 
-   
     <nav class="nav-slide">
         {% if anterior %}
             <a href="/seccion/{{ anterior }}" class="btn">← Anterior</a>
         {% endif %}
-
         <div class="puntos">
             {% for s in secciones %}
                 <span class="punto {% if loop.index0 == indice %}activo{% endif %}"></span>
             {% endfor %}
         </div>
-
         {% if siguiente %}
             <a href="/seccion/{{ siguiente }}" class="btn">Siguiente →</a>
         {% endif %}
-
         <a href="/" class="btn btn-blanco">Inicio</a>
     </nav>
 
 {% else %}
-   
     <div class="container">
         <header class="portada">
-            <h1>CECYTEJ 08 Ixtlahuacan del Rio Jalisco.</h1>
-            <p>Colegio de Estudios Cientificos y Tecnologicos del Estado de Jalisco.</p>
+            <div class="portada-logos">
+                <img src="https://th.bing.com/th/id/OIP.ALVuYoNiMXR_6LqKFiImAQHaHa?w=163&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+                     alt="Logo CECyTEJ" class="logo-cecytej">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.dM7RWnT0ewqYID_Q3GZKTgHaHK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+                     alt="Emblema 30 años CECyTEJ" class="emblema-30">
+            </div>
+
+            <h1>Colegio de Estudios Científicos y Tecnológicos del Estado de Jalisco</h1>
+
+            <p class="bienvenida">
+                ¡Bienvenidos al Plantel 08 Ixtlahuacán del Río! Un espacio donde la ciencia,
+                la tecnología y los valores forman a las nuevas generaciones de Jalisco.
+            </p>
+
+            <p>Plantel 08 · Ixtlahuacán del Río, Jalisco</p>
+
+            <img src="https://cdn.phototourl.com/member/2026-11-13-1b810c92-2973-4fa0-b23e-b804939faaad.jpg"
+                 alt="Fotografía del Plantel 08 Ixtlahuacán del Río"
+                 class="foto-plantel">
+
             <a href="/seccion/{{ secciones[0].id }}" class="btn">
-                Ver informacion.
+                Ver información
             </a>
         </header>
 
@@ -399,34 +1043,33 @@ HTML = """
         </div>
 
         <div class="info-section">
-            <h2>📋 Información General</h2>
+            <h2>Información General</h2>
             <div class="info-grid">
                 <div class="info-item">
-                    <strong>📍 Dirección</strong>
-                    Calle Herrera y Cairo, 45260 Ixtlahuacan del Río, Jalisco
+                    <strong>Dirección</strong>
+                    Calle Herrera y Cairo, 45260 Ixtlahuacán del Río, Jalisco
                 </div>
                 <div class="info-item">
-                    <strong>📞 Teléfono</strong>
+                    <strong>Teléfono</strong>
                     373 734 5002
                 </div>
-
                 <div class="info-item">
-                    <strong>🕐 Horario</strong>
-                    Lunes a Viernes, 6:30a.m - 9:30p.m
+                    <strong>Horario</strong>
+                    Lunes a Viernes, 6:30 a.m. - 9:30 p.m.
                 </div>
                 <div class="info-item">
-                    <strong>🎓 Carreras</strong>
-                    Programacion y Electromecanica.
+                    <strong>Carreras</strong>
+                    Programación y Electromecánica
                 </div>
                 <div class="info-item">
-                    <strong>👩‍🎓 Alumnos</strong>
+                    <strong>Alumnos</strong>
                     Más de 300 estudiantes
                 </div>
             </div>
         </div>
 
         <footer>
-            © 2026 Colegio de Estudios Cientificos y Tecnologicos del Estado de Jalisco. 
+            © 2026 Colegio de Estudios Científicos y Tecnológicos del Estado de Jalisco.
         </footer>
     </div>
 {% endif %}
@@ -438,65 +1081,119 @@ HTML = """
 
 SECCIONES = [
     {
-        "id": "historia",
+        "id": "Historia",
         "titulo": "Nuestra Historia",
-        "descripcion_corta": "Hace 30 años que CECYTEJ forma mentes, inspira sueños y construye futuros.",
-        "descripcion_larga": "El Plantel 08 Ixtlahuacán del Río forma parte del Colegio de Estudios Científicos y Tecnológicos del Estado de Jalisco (CECyTEJ), institución creada en 1996 para ofrecer educación media superior tecnológica a los jóvenes del estado. A lo largo de los años, el CECyTEJ ha crecido hasta contar con 31 planteles en distintas regiones de Jalisco, entre ellos el Plantel 08, que se ha distinguido por su compromiso con la formación académica, científica y tecnológica de los estudiantes de Ixtlahuacán del Río y comunidades cercanas. Gracias a su labor educativa, ha contribuido al desarrollo de numerosas generaciones, brindándoles las herramientas necesarias para continuar sus estudios superiores e incorporarse al ámbito laboral. Mostrando el cambio en los logos, planteles y los millones de estudiantes que se han graduado de CECYTEJ.",
-        "curiosidad": "CECYTEJ #08 ixtlahuacan del Rio Jalisco fue inagurado en el año 2000.",
+        "descripcion_corta": "Hace 30 años que CECyTEJ forma mentes, inspira sueños y construye futuros.",
+        "descripcion_larga": "El Plantel 08 Ixtlahuacán del Río forma parte del Colegio de Estudios Científicos y Tecnológicos del Estado de Jalisco (CECyTEJ), institución creada en 1996 para ofrecer educación media superior tecnológica a los jóvenes del estado. A lo largo de los años, el CECyTEJ ha crecido hasta contar con 31 planteles en distintas regiones de Jalisco, entre ellos el Plantel 08, que se ha distinguido por su compromiso con la formación académica, científica y tecnológica de los estudiantes de Ixtlahuacán del Río y comunidades cercanas. Gracias a su labor educativa, ha contribuido al desarrollo de numerosas generaciones, brindándoles las herramientas necesarias para continuar sus estudios superiores e incorporarse al ámbito laboral, mostrando el cambio en los logos, planteles y los millones de estudiantes que se han graduado de CECyTEJ.",
+        "curiosidad": "CECyTEJ #08 Ixtlahuacán del Río, Jalisco fue inaugurado en el año 2000.",
         "img": "https://cdn.phototourl.com/member/2026-11-13-1b810c92-2973-4fa0-b23e-b804939faaad.jpg"
     },
     {
-        "id": "instalaciones",
+        "id": "Instalaciones",
         "titulo": "Instalaciones",
         "descripcion_corta": "Laboratorios, biblioteca, canchas deportivas, aulas, gimnasio y talleres.",
-        "descripcion_larga": "Nuestras instalacionesios han cambiado con el tiempo, incrementado el area psicopedagogicas, dos domos, areas verdes, mas aulas y laboratorios equipados y la expansion de la escuela junto con el material y maquinas con las que cuenta el area de electromecanica.",
-        "curiosidad": "Las mayoria de arboles en el plantel fueron plantados hace años por estudiantes de la epoca.",
+        "descripcion_larga": "Nuestras instalaciones han cambiado con el tiempo: se incrementó el área psicopedagógica, dos domos, áreas verdes, más aulas y laboratorios equipados, y la expansión de la escuela junto con el material y las máquinas con las que cuenta el área de electromecánica.",
+        "curiosidad": "La mayoría de los árboles del plantel fueron plantados hace años por estudiantes de la época.",
         "img": "https://cdn.phototourl.com/member/2026-11-13-a5a45b7a-3c06-4b31-9dfe-cea31ece873c.jpg"
     },
     {
-        "id": "Carreras.",
-        "titulo": "Programacion",
-        "descripcion_corta": "Carreras tecnicas.",
+        "id": "Programacion",
+        "titulo": "Programación",
+        "descripcion_corta": "Carreras técnicas.",
         "descripcion_larga": "En el Plantel 08 de Ixtlahuacán del Río, la formación tecnológica ha evolucionado para adaptarse a las necesidades actuales. En sus inicios, la carrera se enfocaba en Soporte Técnico, donde los estudiantes aprendían mantenimiento y reparación de equipos de cómputo. Posteriormente evolucionó a Informática, incorporando el uso de software, redes y sistemas computacionales. Con el avance de la tecnología, la especialidad dio paso a Programación, una carrera centrada en el diseño y desarrollo de aplicaciones, páginas web, bases de datos y soluciones digitales. Hoy en día, la programación es una de las áreas más importantes y demandadas, ya que permite a los estudiantes desarrollar habilidades para crear tecnología e innovar en distintos ámbitos profesionales.",
-        "curiosidad": "Muchas personas creen que la Inteligencia Artificial reemplazará a los programadores, la realidad es que la IA también necesita programadores para ser creada, entrenada y mejorada.",
+        "curiosidad": "Muchas personas creen que la Inteligencia Artificial reemplazará a los programadores; la realidad es que la IA también necesita programadores para ser creada, entrenada y mejorada.",
         "img": "https://cdn.phototourl.com/member/2026-11-13-3c3fe275-825c-4b29-9ff4-3e238b0c0c13.jpg"
     },
     {
-        "id": "Carreras",
-        "titulo": "Electromecanica.",
-        "descripcion_corta": "Carreras tecnicas.",
-        "descripcion_larga": "La electromecánica es una carrera enfocada en el funcionamiento, instalación, mantenimiento y reparación de máquinas y sistemas que combinan componentes mecánicos, eléctricos y electrónicos. Los estudiantes aprenden a trabajar con motores, circuitos eléctricos, equipos industriales, sistemas automatizados y herramientas de control, conocimientos que se utilizan en fábricas, talleres, procesos de producción y tecnología industrial..",
+        "id": "Electromecanica",
+        "titulo": "Electromecánica",
+        "descripcion_corta": "Carreras técnicas.",
+        "descripcion_larga": "La electromecánica es una carrera enfocada en el funcionamiento, instalación, mantenimiento y reparación de máquinas y sistemas que combinan componentes mecánicos, eléctricos y electrónicos. Los estudiantes aprenden a trabajar con motores, circuitos eléctricos, equipos industriales, sistemas automatizados y herramientas de control, conocimientos que se utilizan en fábricas, talleres, procesos de producción y tecnología industrial.",
         "curiosidad": "Muchas de las máquinas que se utilizan para fabricar autos, alimentos, ropa o dispositivos electrónicos son operadas y mantenidas por técnicos e ingenieros electromecánicos.",
         "img": "https://cdn.phototourl.com/member/2026-11-13-ca3133ce-65bd-4f41-826c-8f92f1a7f070.jpg"
     },
     {
         "id": "Eventos",
-        "titulo": "Eventos escolares.",
+        "titulo": "Eventos escolares",
         "descripcion_corta": "Una escuela donde cada evento se vive con la participación de todos.",
         "descripcion_larga": "El plantel promueve la participación integral de sus estudiantes mediante eventos deportivos como torneos de fútbol y voleibol y ferias académicas, además de concursos de conocimientos en distintas áreas. Asimismo, fomenta las tradiciones y valores culturales a través de actividades conmemorativas como el Día de Muertos, las celebraciones patrias y los desfiles cívicos, fortaleciendo la convivencia, el trabajo en equipo y el sentido de pertenencia a la comunidad escolar.",
-        "curiosidad": "La escuela cuenta con una gran coleccion de trofeos de los eventos participados.",
+        "curiosidad": "La escuela cuenta con una gran colección de trofeos de los eventos en los que ha participado.",
         "img": "https://cdn.phototourl.com/member/2026-11-13-479971ce-af78-42af-8372-9eda9776c424.jpg"
     },
     {
-        "id": "contacto",
-        "titulo": "Contacto e Informacion",
-        "descripcion_corta": "Informacion general de la escuela.",
-        "descripcion_larga": "Ubicacion: Herrera y Cairo No. 120, Col. La Garita / La Escondida, Ixtlahuacán del Río, Jalisco, C.P. 45260."
-        "CCT:14ETC0008B."
-        "Telefono: 373 734 5002",
-        
-        "Dato": "Puedes solicitar tres tipos de becas diferentes..",
-        "img": "data:image/webp;base64,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"
+        "id": "Contacto",
+        "titulo": "Contacto e Información",
+        "descripcion_corta": "Información general de la escuela.",
+        "descripcion_larga": "Ubicación: Herrera y Cairo No. 120, Col. La Garita / La Escondida, Ixtlahuacán del Río, Jalisco, C.P. 45260. CCT: 14ETC0008B. Teléfono: 373 734 5002.",
+        "curiosidad": "Puedes solicitar tres tipos de becas diferentes.",
+        "img": "https://th.bing.com/th/id/OIP.rJwMMnO10X6RKbY6gfHXJQHaC6?w=312&h=138&c=7&r=0&o=7&pid=1.7&rm=3"
     },
-    # 🎬 NUEVA SECCIÓN CON VIDEO LOCAL aki si use chatgepete
     {
-        "id": "video",
+        "id": "Video",
         "titulo": "Entrevista",
         "descripcion_corta": "Entrevista a los egresados del CECyTEJ.",
-        "descripcion_larga": "En este video se mostraran las respuestas de las entrevistas a los agresados del cecytej y se conoceran sus opiniones respecto su experiencia en la escuela.",
-        "curiosidad": "La entrevista fue para personas reales, pero por motivos de privacidad y distancia, tuvieron que ser escritas.",
+        "descripcion_larga": "En este video se mostrarán las respuestas de las entrevistas a los egresados del CECyTEJ y se conocerán sus opiniones respecto a su experiencia en la escuela.",
+        "curiosidad": "La entrevista fue a personas reales, pero por motivos de privacidad y distancia, tuvieron que ser escritas.",
         "img": "https://cdn.phototourl.com/member/2026-11-16-c6489ee3-c0e3-49d1-bf32-4600cbd842f0.jpg",
         "video": "/static/1112(2).mp4"
+    },
+    {
+        "id": "LineaTiempo",
+        "tipo": "especial",
+        "titulo": "Línea del Tiempo",
+        "descripcion_corta": "Etapas, mejoras, recuerdos y eventos.",
+        "descripcion_larga": "Recorrido visual por la historia del Plantel 08 y del CECyTEJ: sus etapas, transformaciones y momentos clave.",
+        "img": "https://cdn.imagetourls.com/uploads/tyImg/sIiBLhPV.jpg",
+        "linea_tiempo": [
+            {"fecha": "2000", "titulo": "Inauguración del Plantel 08", "descripcion": "Abre sus puertas en Ixtlahuacán del Río y comienza a formar a las primeras generaciones.", "img": "https://tse1.mm.bing.net/th/id/OIP.gtGHr1XdSWXQyOuZJZScyQHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"},
+            {"fecha": "2026", "titulo": "30 años de historia", "descripcion": "El CECyTEJ celebra tres décadas formando mentes, inspirando sueños y construyendo futuros.", "img": "https://cdn.imagetourls.com/uploads/tyImg/sIiBLhPV.jpg"}
+        ],
+        "antes_ahora": {
+            "texto": "Así lucía el plantel en sus inicios y así luce hoy.",
+            "antes_img": "https://tse1.mm.bing.net/th/id/OIP.gtGHr1XdSWXQyOuZJZScyQHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+            "ahora_img": "https://cdn.imagetourls.com/uploads/tyImg/sIiBLhPV.jpg"
+        },
+        "mejoras": [
+            {"titulo": "Área psicopedagógica", "descripcion": "Espacio de atención para los estudiantes."},
+            {"titulo": "Dos domos", "descripcion": "Para actividades deportivas y cívicas."},
+            {"titulo": "Áreas verdes", "descripcion": "Ampliación de las áreas verdes del plantel."},
+            {"titulo": "Aulas y laboratorios", "descripcion": "Más aulas y laboratorios equipados."},
+            {"titulo": "Expansión", "descripcion": "Crecimiento junto con material y máquinas de electromecánica."}
+        ],
+        "recuerdos": [
+            {"titulo": "Los árboles del plantel", "descripcion": "Plantados hace años por estudiantes de la época."},
+            {"titulo": "Eventos cívicos", "descripcion": "Desfiles y celebraciones patrias de siempre."}
+        ],
+        "eventos_clave": [
+            {"fecha": "1996", "titulo": "Fundación del CECyTEJ", "descripcion": "Creación de la institución a nivel estatal."},
+            {"fecha": "2000", "titulo": "Inauguración del Plantel 08", "descripcion": "Apertura oficial en Ixtlahuacán del Río."},
+            {"fecha": "2026", "titulo": "30 Aniversario", "descripcion": "Tres décadas de historia y formación."}
+        ],
+        "datos_crecimiento": [
+            {"numero": "31", "etiqueta": "Planteles en Jalisco"},
+            {"numero": "30", "etiqueta": "Años de historia"},
+            {"numero": "+300", "etiqueta": "Alumnos actuales"},
+            {"numero": "2", "etiqueta": "Carreras técnicas"}
+        ]
+    },
+    {
+        "id": "Testimonios",
+        "tipo": "especial",
+        "titulo": "Testimonios",
+        "descripcion_corta": "Exalumnos y alumnos.",
+        "descripcion_larga": "Voces de quienes han formado parte del CECyTEJ Plantel 08: exalumnos y alumnos comparten su experiencia.",
+        "testimonios": [
+            {"tipo": "Exalumno", "nombre": "Fernando", "generacion": "Generación 2022-2025", "frase": "La escuela es bien bonita, convives y haces amigos, lo que importa es sentirse bien.",},
+            {"tipo": "Alumno", "nombre": "Valeria", "generacion": "2023-2026", "frase": "Me gusta la experiencia, aunque sea de último año agradezco todo lo que pasé aquí.", },
+            {"tipo": "Exalumno", "nombre": "Cristopher", "frase": "Sean autodidactas.", }
+            
+        ],
+        "formacion_integral": [
+            {"icono": "📚", "titulo": "Académica", "descripcion": "Formación técnica de calidad."},
+            {"icono": "⚽", "titulo": "Deportiva", "descripcion": "Torneos y trabajo en equipo."},
+            {"icono": "🎭", "titulo": "Cultural", "descripcion": "Tradiciones y celebraciones."},
+            {"icono": "🤝", "titulo": "Valores", "descripcion": "Convivencia y pertenencia."}
+        ]
     }
 ]
 
@@ -508,7 +1205,6 @@ def inicio():
 
 @app.route("/seccion/<identificador>")
 def detalle(identificador):
-    # Buscar índice de la sección actual
     indice = next((i for i, s in enumerate(SECCIONES) if s["id"] == identificador), None)
     if indice is None:
         return "<h1>Sección no encontrada</h1><a href='/'>Volver</a>", 404
