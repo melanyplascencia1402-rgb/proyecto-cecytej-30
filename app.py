@@ -642,15 +642,6 @@ HTML = """
             transform: translateY(-6px);
         }
 
-        .testimonio img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--color-dorado);
-            margin-bottom: 15px;
-        }
-
         .testimonio .nombre {
             color: var(--color-primario);
             font-size: 1.15em;
@@ -695,36 +686,6 @@ HTML = """
             margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }
-
-        /* Frases de orgullo */
-        .frases-orgullo {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .frase-orgullo {
-            background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
-            color: white;
-            padding: 30px 25px;
-            border-radius: 18px;
-            font-size: 1.2em;
-            line-height: 1.6;
-            text-align: center;
-            font-style: italic;
-            position: relative;
-            box-shadow: 0 8px 25px rgba(0, 99, 65, 0.3);
-        }
-
-        .frase-orgullo::before {
-            content: "\\201C";
-            font-size: 4em;
-            color: rgba(255, 255, 255, 0.3);
-            position: absolute;
-            top: -10px;
-            left: 15px;
-            line-height: 1;
         }
 
         /* Formación integral */
@@ -909,24 +870,11 @@ HTML = """
             <div class="grid-testimonios">
                 {% for t in seccion.testimonios %}
                 <div class="testimonio">
-                    {% if t.foto %}<img src="{{ t.foto }}" alt="{{ t.nombre }}">{% endif %}
                     <span class="testimonio-tipo">{{ t.tipo }}</span>
                     <div class="nombre">{{ t.nombre }}</div>
                     {% if t.generacion %}<div class="generacion">{{ t.generacion }}</div>{% endif %}
                     <p class="frase">{{ t.frase }}</p>
                 </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-
-        {% if seccion.frases_orgullo %}
-        <div class="especial-bloque">
-            <h2>Frases de Orgullo</h2>
-            <p class="bloque-desc">Lo que significa ser parte del CECyTEJ Plantel 08.</p>
-            <div class="frases-orgullo">
-                {% for f in seccion.frases_orgullo %}
-                <div class="frase-orgullo">{{ f }}</div>
                 {% endfor %}
             </div>
         </div>
@@ -1182,11 +1130,11 @@ SECCIONES = [
         "titulo": "Testimonios",
         "descripcion_corta": "Exalumnos y alumnos.",
         "descripcion_larga": "Voces de quienes han formado parte del CECyTEJ Plantel 08: exalumnos y alumnos comparten su experiencia.",
+        "img": "https://tse1.mm.bing.net/th/id/OIP.PsJRDP5auWe9qYhFWzLGkgHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
         "testimonios": [
             {"tipo": "Exalumno", "nombre": "Fernando", "generacion": "Generación 2022-2025", "frase": "La escuela es bien bonita, convives y haces amigos, lo que importa es sentirse bien.",},
             {"tipo": "Alumno", "nombre": "Valeria", "generacion": "2023-2026", "frase": "Me gusta la experiencia, aunque sea de último año agradezco todo lo que pasé aquí.", },
             {"tipo": "Exalumno", "nombre": "Cristopher", "frase": "Sean autodidactas.", }
-            
         ],
         "formacion_integral": [
             {"icono": "📚", "titulo": "Académica", "descripcion": "Formación técnica de calidad."},
