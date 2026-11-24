@@ -1338,7 +1338,7 @@ SECCIONES = [
         "descripcion_corta": "Carreras técnicas.",
         "descripcion_larga": "La electromecánica es una carrera enfocada en el funcionamiento, instalación, mantenimiento y reparación de máquinas y sistemas que combinan componentes mecánicos, eléctricos y electrónicos. Los estudiantes aprenden a trabajar con motores, circuitos eléctricos, equipos industriales, sistemas automatizados y herramientas de control, conocimientos que se utilizan en fábricas, talleres, procesos de producción y tecnología industrial.",
         "curiosidad": "Muchas de las máquinas que se utilizan para fabricar autos, alimentos, ropa o dispositivos electrónicos son operadas y mantenidas por técnicos e ingenieros electromecánicos.",
-        "img": "https://cdn.phototourl.com/member/2026-11-13-ca3133ce-65bd-4f41-826c-8f92f1a7f070.jpg"
+        "img": "https://www.geocities.ws/cecytej08ixtlahuacan/IMG_0032.JPG"
     },
     {
         "id": "Eventos",
@@ -1371,7 +1371,7 @@ SECCIONES = [
         "titulo": "Línea del Tiempo",
         "descripcion_corta": "Etapas, mejoras, recuerdos y eventos.",
         "descripcion_larga": "Recorrido visual por la historia del Plantel 08 y del CECyTEJ: sus etapas, transformaciones y momentos clave.",
-        "img": "https://cdn.imagetourls.com/uploads/tyImg/sIiBLhPV.jpg",
+        "img": "https://scontent-qro3-1.xx.fbcdn.net/v/t39.30808-6/490480180_1248016520659239_6679823400906684323_n.jpg?stp=dst-jpg_tt6&cstp=mx1296x972&ctp=s1296x972&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHSdP2p1It_0EVfoAH5Ab6OFjsa-TJHjAAWOxr5MkeMADmBhK9nTDvZyczPzwKJzS5qGOnOSwODugBYdBVBV64x&_nc_ohc=jr6hxzAHcqgQ7kNvwH1ULUw&_nc_oc=AdpN1fal18UJ0ifhOLlJhdGHUSEjnz-fv1ot8Dz54grs4h5_EqAuMQrKQbpcJ-X8LOA&_nc_pt=1&_nc_zt=23&_nc_ht=scontent-qro3-1.xx&_nc_gid=lr4ycGRb3TOP3tsSaR_sJw&_nc_ss=7b2a8&oh=00_AQQ_dyc-6JMJy6aa3SPe3HQM-QO8A7PapX8blyDYVck_hA&oe=6B0AC75E",
         
         "linea_tiempo": [
             {"fecha": "2000", "titulo": "Inauguración del Plantel 08", "descripcion": "Abre sus puertas en Ixtlahuacán del Río y comienza a formar a las primeras generaciones.", "img": "https://www.geocities.ws/cecytej08ixtlahuacan/IMG_0017.JPG"},
@@ -1420,7 +1420,7 @@ SECCIONES = [
         "titulo": "Orgullo CECyTEJ",
         "descripcion_corta": "Logros, talento y proyectos.",
         "descripcion_larga": "Nuestros estudiantes destacan en múltiples áreas, demostrando que el talento y la dedicación no tienen límites.",
-        "img": "https://cdn.imagetourls.com/uploads/tyImg/sIiBLhPV.jpg",
+        "img": "https://www.geocities.ws/cecytej08ixtlahuacan/estante_trofeos.jpg",
         "galeria_orgullo": [
             {"categoria": "Tecnología", "descripcion": "Desarrollo de aplicaciones web y proyectos de programación.", "img": "https://www.geocities.ws/cecytej08ixtlahuacan/DSC06101.JPG"},
             {"categoria": "Ciencia", "descripcion": "Participación en ferias de ciencia con proyectos innovadores.", "img": "https://tse1.mm.bing.net/th/id/OIP.SfYkl_uLLn9z2U_mkwgU3QHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"},
@@ -1436,7 +1436,7 @@ SECCIONES = [
         "titulo": "Celebremos Juntos",
         "descripcion_corta": "30 años de orgullo y tradición.",
         "descripcion_larga": "Acompáñanos en las actividades conmemorativas por nuestro 30 Aniversario.",
-        "img": "https://cdn.imagetourls.com/uploads/tyImg/sIiBLhPV.jpg",
+        "img": "https://cdn.phototourl.com/member/2026-11-24-b10e602f-2bce-4b24-bb2a-58d4e8dc70a3.jpg",
         "agenda": [
             {
                 "titulo": "Expo-ciencia y Danza Folclórica",
@@ -1482,7 +1482,7 @@ SECCIONES = [
         "titulo": "Nuestro Futuro",
         "descripcion_corta": "Los próximos 30 años.",
         "descripcion_larga": "Lo que imaginasde cómo podría ser el plantel en un futuro.",
-        "img": "https://cdn.imagetourls.com/uploads/tyImg/sIiBLhPV.jpg",
+        "img": "https://th.bing.com/th/id/OIP.Ia3tddlnud8R5mT1SjdrZAAAAA?w=169&h=180&c=7&r=0&o=7&pid=1.7&rm=3",
         "formulario_futuro": True
     },
     
